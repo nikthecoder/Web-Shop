@@ -1,0 +1,50 @@
+﻿@page
+@model hakimslivs.Pages.Admin.OrderManager.IndexModel
+
+@{
+    ViewData["Title"] = "Orderlista";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+                Orderdatum
+            </th>
+            <th>
+                Kund
+            </th>
+            <th>
+                Betalningsstatus
+            </th>
+            <th>
+                Orderstatus
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var order in Model.Order) {
+        <tr>
+            <td>
+                @order.OrderDate.ToString("dd-MM-yyyy HH:mm:ss")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.User.FirstName) @Html.DisplayFor(modelItem => order.User.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.PaymentOk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => order.OrderStatus.OrderStatusName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@order.ID" class="btn btn-primary">Redigera</a>
+                <a asp-page="./Details" asp-route-id="@order.ID" class="btn btn-info">Detaljer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

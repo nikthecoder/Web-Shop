@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using hakimslivs.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@model hakimslivs.Pages.IndexModel
+
+
+<div class="navbar navbar-collapse collapse d-sm-inline-flex align-content-start col-2 side-menu-left">
+    <ul class="navbar-nav flex-grow-1">
+        <a asp-page="./Index" class="side-menu"><i class="fa fa-solid fa-cubes-stacked"></i><span class="side-menu-name">Alla</span></a>
+        @foreach (var category in Model.Categories)
+        {
+            <a class="side-menu" asp-page="./Index"
+           asp-route-currentCategory="@category.Name">
+                <i class="fa @category.Icon"></i><span class="side-menu-name">@category.Name</span>
+            </a>
+        }
+    </ul>
+</div>
+
+    <ul class="navbar-nav side-menu-main text-center">
+        <li class="nav-item btn btn-outline-primary my-2 my-sm-0 mr-2">
+            <a asp-page="./Index">
+                <i class="fa fa-solid fa-cubes-stacked"></i> <span>Alla</span>
+            </a>
+        </li>
+        @foreach (var category in Model.Categories)
+        {
+            <li class="nav-item btn btn-outline-primary my-2 my-sm-0 mr-2">
+                <a asp-page="./Index"
+               asp-route-currentCategory="@category.Name">
+                    <i class="fa @category.Icon"></i> <span>@category.Name</span>
+                </a>
+            </li>
+        }
+    </ul>

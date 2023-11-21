@@ -1,0 +1,93 @@
+﻿@page
+@model hakimslivs.Pages.Admin.ProductManager.IndexModel
+
+@{
+    ViewData["Title"] = "Sortiment";
+}
+<div class="container">
+    <div class="row">
+        <div class="justify-content-center col-10">
+            <h1 class="title">@ViewData["Title"]</h1>
+
+            <p>
+                <a asp-page="Create" class="btn btn-primary">Skapa ny produkt</a>
+            </p>
+
+            <div class="product-manager-categories">
+                <a asp-page="/Admin/ProductManager/Index"><i class="fa fa-solid fa-cubes-stacked"></i><span class="category-name">Alla</span></a>
+                @foreach (var category in Model.Categories)
+                {
+                    <a asp-page="/Admin/ProductManager/Index" asp-route-currentCategory="@category.Name"><i class="fa @category.Icon"></i><span class="category-name">@category.Name</span></a>
+                }
+            </div>
+
+
+            <div class="product-manager-container">
+
+                @foreach (var item in Model.Item)
+                {
+                    <div class="card text-center product-manager">
+                        @{
+                            string stockIcon = "";
+                            @if (item.Stock >= 10)
+                            {
+                                stockIcon = "🟢";
+                            }
+                            else if (item.Stock < 10 && item.Stock > 0)
+                            {
+                                stockIcon = "🟡";
+                            }
+                            else
+                            {
+                                stockIcon = "🔴";
+                            }
+                        }
+
+                        <img class="card-img" src="@item.ImageURL" alt="Product image">
+                        <h3>@Html.DisplayFor(modelItem => item.Product)</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Item[0].Category)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Item[0].Price)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Item[0].Stock)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @if (item.Category == null)
+                                        {
+                                            <p class="na">Ingen</p>
+                                        }
+                                        else
+                                        {
+                                            <a href="#"><i class="fa @item.Category.Icon"></i>@item.Category.Name</a>
+                                        }
+                                    </td>
+                                    <td>@Html.DisplayFor(modelItem => item.Price)kr</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Stock)st <span class="stockIcon">@stockIcon</span></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        @if (String.IsNullOrEmpty(item.Description))
+                        {
+                            <p class="na">Ingen beskrivning tillgänglig</p>
+                        }
+                        else
+                        {
+                            <p class="na">@item.Description</p>
+                        }
+                        <span class="justify-content-center">
+                            <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary">Redigera</a>
+                            <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Ta bort</a>
+                        </span>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

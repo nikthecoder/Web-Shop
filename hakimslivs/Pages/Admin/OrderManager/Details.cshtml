@@ -1,0 +1,97 @@
+﻿@page
+@model hakimslivs.Pages.Admin.OrderManager.DetailsModel
+
+@{
+    ViewData["Title"] = "Orderdetaljer";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Order #
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.ID)
+        </dd>
+        <dt class="col-sm-2">
+            Orderdatum
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Order.OrderDate.ToString("dd-MM-yyyy HH:mm:ss")
+        </dd>
+        <dt class="col-sm-2">
+            Kund
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.User.FirstName) @Html.DisplayFor(model => model.Order.User.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            Betalningsstatus
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.PaymentOk)
+        </dd>
+        <dt class="col-sm-2">
+           Orderstatus
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderStatus.OrderStatusName)
+        </dd>
+    </dl>
+    <table class="table text-center table-striped">
+    <thead>
+        <tr>
+            <th>
+                Produkt
+            </th>
+            <th>
+                Antal
+            </th>
+            <th>
+                Styckpris
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var iq in Model.ItemQuantityList) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => iq.Item.Product)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iq.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => iq.Item.Price) kr
+                </td>
+                <td>
+                    @(iq.Item.Price * iq.Quantity) kr
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                <strong>@Model.Total kr</strong>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div>
+    <a href="~/Invoice/@Model.Order.ID" type="button" class="btn btn-info"><i class="fa fa-print"></i> Faktura</a>
+    <button class="btn btn-success" onclick="window.print();return false;" id="invoice-print"><i class="fa fa-print"></i> Plocklista</button>
+    <a asp-page="./Edit" asp-route-id="@Model.Order.ID" class="btn btn-primary">Redigera</a>
+    <a asp-page="./Index" class="btn btn-info">Tillbaka</a>
+</div>

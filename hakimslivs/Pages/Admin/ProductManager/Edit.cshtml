@@ -1,0 +1,65 @@
+﻿@page
+@model hakimslivs.Pages.Admin.ProductManager.EditModel
+
+@{
+    ViewData["Title"] = "Redigera produkt";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div>
+    <div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Item.ID" />
+            <div class="form-group">
+                <label asp-for="Item.Category.Name" class="control-label">Kategori</label>
+                <select asp-for="Item.Category.Name" class="form-control" asp-items="Model.Categories"></select>
+                <span asp-validation-for="Item.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.Product" class="control-label"></label>
+                <input asp-for="Item.Product" class="form-control" />
+                <span asp-validation-for="Item.Product" class="text-danger"></span>
+            </div>
+            <div class="form-price">
+                <div class="form-group">
+                    <label asp-for="Kronor" class="control-label"></label>
+                    <input asp-for="Kronor" id="Kronor" class="form-control" />
+                    <span asp-validation-for="@Model.Kronor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Öre" class="control-label"></label>
+                    <input asp-for="Öre" id="Öre" class="form-control" />
+                    <span asp-validation-for="@Model.Öre" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.Stock" class="control-label"></label>
+                <input asp-for="Item.Stock" class="form-control" />
+                <span asp-validation-for="Item.Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.Description" class="control-label"></label>
+                <input asp-for="Item.Description" class="form-control" />
+                <span asp-validation-for="Item.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.ImageURL" class="control-label"></label>
+                <input asp-for="Item.ImageURL" class="form-control" />
+                <span asp-validation-for="Item.ImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spara" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-info">Tillbaka</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

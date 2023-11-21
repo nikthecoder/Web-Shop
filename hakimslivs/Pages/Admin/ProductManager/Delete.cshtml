@@ -1,0 +1,69 @@
+﻿@page
+@model hakimslivs.Pages.Admin.ProductManager.DeleteModel
+
+@{
+    ViewData["Title"] = "Ta bort produkt";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <div class="alert alert-danger" role="alert">
+    <h4>Är du säker på att du vill ta bort den här produkten?</h4>
+    Data om produkten och ordrar som innehåller produkten går förlorade.
+    </div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Item.Category != null)
+            {
+                <i class="fa @Model.Item.Category.Icon"></i>@Html.DisplayFor(model => model.Item.Category.Name)
+            }
+            else
+            {
+                <span class="na">Ingen</span>
+            }
+            
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Product)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Product)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Price) kr
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Stock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Stock) st
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item.ImageURL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item.ImageURL)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Item.ID" />
+        <input type="submit" value="Ta bort" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-info">Tillbaka</a>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+UserName;FirstName;LastName;DOB;Street;StreetNumber;PostalCode;City;Email;Password;Role
+noodle;sfgh;sfh;2022-01-01;sdfg;2;12345;nope;noodle@example.com;Test123!;Admin
+adfg;sdfg;dfg;2010-02-22;fgh;1;12345;lol;lol@example.com;Test123!;adfgadf
+bjol;Björn;Olsson;1975-10-20;Tomtebodavägen;25;12345;Stockholm;bjorn.o@example.com;Test123!;Basic
+gjsv;Gjert;Svensson;1953-02-11;Nobels väg;4;12345;Stockholm;gjert.s@example.com;Test123!;Basic
+sala;Sarah;Larsson;1987-12-06;Scheeles väg;32;12345;Stockholm;sarah.l@example.com;Test123!;Basic
+mani;Madde;Nilsson;2000-04-18;Retzius väg;8;12345;Stockholm;madde.n@example.com;Test123!;Basic
+lijo;Lisa;Johansson;2003-10-05;Nanna Svartz väg;11;12345;Stockholm;lisa.j@example.com;Test123!;Basic
+franko;Frank;Andersson;1980-05-13;Göteborgsgatan;15;41515;Göteborg;frankyboy@example.com;Test123!;Basic
+pizzaparty;Paulo;Roberto;1970-01-15;Kungsträdgården;100;11215;Stockholm;pauloprost@hotmale.com;Test123!;Basic
+karreflarre;Karim;Benzema;1986-05-30;Lyonstreet;14;12312;Paris;karimbenzema@hotmail.com;Test123!;Basic
+mosallad;Mohammed;Salah;1992-03-15;Anfieldgatan;100;13123;Liverpool;momomo@example.com;Test123!;Basic
+seblarre;Sebastian;Larsson;1986-01-01;Råsundavägen;159;16936;Solna;sebebebe@example.com;Test123!;Basic
+goitgoit;Henok;Goitom;1985-02-05;Framnäsbacken;16;16935;Solna;gotigoitoit@example.com;Test123!;Basic
+jahudii;Josefin;Davidsson;1993-09-08;Fridhemsgatan ;16;11325;Stockholm;josjos@example.com;Test123!;Basic

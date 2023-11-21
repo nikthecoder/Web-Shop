@@ -1,0 +1,20 @@
+Category;Product;Price;Stock;Description;ImageURL
+Frukt;Banan;5.5;100;En lång gul böjd frukt;https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80g
+Frukt;Päron;6;200;En grön frukt;https://images.unsplash.com/photo-1619506147154-01717498fc26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80
+Frukt;Apelsin;5.5;5;;https://images.unsplash.com/photo-1608447779172-bcf64548de5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80
+Frukt;Äpple;4;300;Finns i flera färger;https://images.unsplash.com/photo-1630563451961-ac2ff27616ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80
+Dryck;Coca Cola;11;55;Originalet;https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80
+Dryck;Red Bull;17;0;Ger dig vingar;https://images.unsplash.com/photo-1580859297753-0b52fa0fc46e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80
+Dryck;Mountain Dew;11;22;Sött vatten;https://images.unsplash.com/photo-1632134547266-ab2cb69602a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80
+Grönsaker;Avokado;10000;15;Hella god på toast!;https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=775&q=80
+Godis;Snickers;26;120;Gott när det kurrar;https://images.unsplash.com/photo-1625035446600-9c5c6b1e4b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80
+Godis;Jellybean;40;50;Gott godis;https://images.unsplash.com/photo-1581798269145-7512508289b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2052&q=80
+Godis;Sura maskar;35;14;Sura maskar;https://images.unsplash.com/photo-1600359756098-8bc52195bbf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1888&q=80
+Dryck;Pepsi Max ;18;400;Läskande dryck;https://images.unsplash.com/photo-1651000877908-18e19a5d4ceb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80
+Bröd;Toast-bröd;15;200;En rostad för hela familjen;https://images.unsplash.com/photo-1598373182308-3270495d2f58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80
+Bröd ;Levaine;25;130;Luftig kärlek;https://images.unsplash.com/photo-1586765501508-cffc1fe200c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80
+Bröd;Surdegslimpa;40;40;För frukost-hipstern!;https://images.unsplash.com/photo-1586187524207-71b5dcf0fb84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80
+Bröd;Baguette;20;40;Fransk klassiker;https://images.unsplash.com/photo-1568471173242-461f0a730452?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80
+Grönsaker;Gurka;15;50;Grönt är gött;https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80
+Grönsaker;Tomat;5;15;Rund röd grönsak;https://images.unsplash.com/photo-1582284540020-8acbe03f4924?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80
+Grönsaker;Rödbeta;5;500;Fantastisk primör;https://images.unsplash.com/photo-1533231040102-5ec7a63e6d0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80

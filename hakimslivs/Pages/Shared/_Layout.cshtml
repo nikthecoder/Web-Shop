@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakim Livs</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/0ed3f70b31.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+            {
+                    <nav class="navbar navbar-brand navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 admin-panel">
+                        <div class="container">
+                            <div class="nav-link"><i class="fa-solid fa-lock"></i><span class="admin-title-title">Admin Panel</span></div>
+                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-start">
+                                <a class="nav-link" asp-page="/Admin/RoleManager/Index" title="Role Manager"><i class="fa-solid fa-users"></i> <span class="admin-title"> Role Manager</span></a>
+                                <a class="nav-link" asp-page="/Admin/UserRoles/Index" title="User Roles"><i class="fa-solid fa-user-gear"></i> <span class="admin-title">User Roles</span></a>
+                                <a class="nav-link" asp-page="/Admin/ProductManager/Index" title="Product Manager"><i class="fa-solid fa-cube"></i> <span class="admin-title">Product Manager</span></a>
+                                <a class="nav-link" asp-page="/Admin/OrderManager/Index" title="Order Manager"><i class="fa-solid fa-file-pen"></i> <span class="admin-title">Order Manager</span></a>
+                            </div>
+                        </div>
+                    </nav>
+            }
+
+        }
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" id="logo" asp-area="" asp-page="/Index">Hakim Livs</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-start">
+                    <form class="form-inline">
+                        <div class="search-bar">
+                            <input class="form-control mr-sm-2" name="SearchTerm" id="SearchTerm" type="search" placeholder="Sök" aria-label="Search">
+                            <button class="btn btn-outline-primary my-2 my-sm-0 mr-2 search" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                    <partial name="_LoginPartial" />
+                    <a asp-page="/Cart" class="btn btn-outline-primary my-2 my-sm-0 mr-2"><span id="amount"></span><span class="bi bi-cart black-color"></span><span class="menu-text"> Varukorg</span></a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Hakim Livs - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

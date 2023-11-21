@@ -1,0 +1,117 @@
+﻿@page "{id:int}"
+@using System.Globalization
+@model hakimslivs.Pages.InvoiceModel
+
+@{
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<div id="element-to-print" class="container bootstrap snippets bootdeys">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default invoice" id="invoice">
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="col-sm-6 top-left" id="logo">
+                            <h1>Hakim Livs</h1>
+                        </div>
+
+                        <div class="col-sm-6 top-right">
+                            <h3 class="marginright">Faktura</h3>
+                            @{ CultureInfo ci = new CultureInfo("sv-SE"); }
+                            <span class="marginright">@Model.Order.OrderDate.ToString("dd MMMM yyyy", ci)</span>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row test">
+
+                        <div class="col-xs-4 from">
+                            <p class="lead marginbottom payment-info">Från: Hakim Livs AB</p>
+                            <p>Livetsgata 1</p>
+                            <p>123 45, Staden</p>
+                            <p>Sverige</p>
+                            <p>Telefon: 0730 - 111 222</p>
+                            <p>Email: kontakt@hakimlivs.se</p>
+                        </div>
+
+                        <div class="col-xs-4 to">
+                            <p class="lead marginbottom payment-info">Till: <span>@Model.Order.User.FirstName @Model.Order.User.LastName</span></p>
+                            <p>@Model.Order.User.Street @Model.Order.User.StreetNumber</p>
+                            <p>@Model.Order.User.PostalCode, @Model.Order.User.City</p>
+                            <p>Sverige</p>
+                            @if (@Model.Order.User.PhoneNumber == null)
+                            {
+                                <p>Telefon: <span class="na">Inte tillgängligt</span></p>
+                            }
+                            else
+                            {
+                                <p>Telefon: @Model.Order.User.PhoneNumber</p>
+                            }
+
+                            <p>Email: <span>@Model.Order.User.Email</span></p>
+
+                        </div>
+
+                        <div class="col-xs-4 text-right payment-details">
+                            <p class="lead marginbottom payment-info">Betalningsuppgifter</p>
+                            <p>Datum: <span>@Model.Order.OrderDate.ToString("dd/MM/yyyy HH:mm:ss")</span></p>
+                            <p>Bankgiro: 1234-567 </p>
+                            <p>OCR: 0987654321</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row table-row">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="width:5%">#</th>
+                                    <th style="width:50%">Produkt</th>
+                                    <th class="text-right" style="width:15%">Antal</th>
+                                    <th class="text-right" style="width:15%">Styckpris</th>
+                                    <th class="text-right" style="width:15%">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.ItemQuantities.Count; i++)
+                                {
+                                    int line = i + 1;
+                                    var total = (Model.ItemQuantities[i].Quantity) * (Model.ItemQuantities[i].Item.Price);
+                                    Model.TotalSum += total;
+                                    <tr class="last-row">
+                                        <td class="text-center"> @line</td>
+                                        <td>@Model.ItemQuantities[i].Item.Product</td>
+                                        <td class="text-right">@Model.ItemQuantities[i].Quantity</td>
+                                        <td class="text-right">@Model.ItemQuantities[i].Item.Price kr</td>
+                                        <td class="text-right">@total kr</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="row test">
+                        <div class="col-xs-6 margintop">
+                            <p class="lead marginbottom" id="logo">Tack för din beställning!</p>
+
+                            <button class="btn btn-success" onclick="window.print();return false;" id="invoice-print"><i class="fa fa-print"></i> Skriv Ut</button>
+                           
+                        </div>
+                        <div class="col-xs-6 text-right pull-right invoice-total">
+                            <p>Summa: <span>@Model.TotalSum</span> kr</p>
+                            <p>Leverans: Gratis</p>
+                            <p><strong>Totalsumma: <span>@Model.TotalSum</span> kr</strong></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
